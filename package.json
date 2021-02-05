@@ -10,6 +10,8 @@
     "@types/node": "^12.19.16",
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "enzyme": "^3.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
@@ -17,8 +19,11 @@
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.8",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "enzyme-to-json": "^3.6.1",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -66,6 +71,13 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "babel": {
+    "env": {
+      "production": {
+        "plugins": [["react-remove-properties", { "properties": ["data-testid"] }]]
+      }
+    }
   },
   "browserslist": {
     "production": [
